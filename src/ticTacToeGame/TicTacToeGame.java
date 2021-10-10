@@ -3,8 +3,17 @@ package ticTacToeGame;
 public class TicTacToeGame {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		char [][] gameBoard = {
+				{' ','|',' ','|',' '},
+				{'-','+','-','+','-'},
+				{' ','|',' ','|',' '}, 
+				{'-','+','-','+','-'}, 
+				{' ','|',' ','|',' '}};
+		for(char[] row: gameBoard ) {
+			for(char c : row) {
+				System.out.print(c);
+			}
+		}
 	}
 
 }
