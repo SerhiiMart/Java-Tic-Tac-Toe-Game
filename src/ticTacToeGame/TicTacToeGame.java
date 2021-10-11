@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import com.sun.source.tree.WhileLoopTree;
+
 public class TicTacToeGame {
 	
 	static ArrayList<Integer> playerPositions = new ArrayList<Integer>();
@@ -24,13 +26,21 @@ public class TicTacToeGame {
 			 System.out.println("Please, enter your placement: ");
 			 System.out.println("A number from 1 to 9! ");
 			 int playerPoss = scan.nextInt();
+			 while(playerPositions.contains(playerPoss) || cpuPositions.contains(playerPositions)) {
+				 System.out.println("Position already taken. Try another one!");
+				 playerPoss = scan.nextInt();
+			 }
 			 placePiece(gameBoard, playerPoss, "Player");
+			 
 			 Random rand = new Random();
-			 
 			 int cpuPoss = rand.nextInt(9) + 1;
+			 while(playerPositions.contains(cpuPoss) || cpuPositions.contains(cpuPoss)) {
+				 cpuPoss = rand.nextInt(9) + 1;
+			 }
 			 placePiece(gameBoard, cpuPoss, "Cpu");
-			 
 			 makeGameBoard(gameBoard);
+			 String result = checkWinner();
+			 System.out.println(result);
 		 }
 		
 	}
@@ -46,8 +56,10 @@ public class TicTacToeGame {
 		char symbol = ' ';
 		if(user.equals("Player")) {
 			symbol = 'X';
+			playerPositions.add(poss);
 		}else if (user.equals("Cpu")) {
 			symbol = 'O';
+			cpuPositions.add(poss);
 		}
 		 switch(poss) {
 		 case 1:
