@@ -1,5 +1,7 @@
 package ticTacToeGame;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -74,5 +76,17 @@ public class TicTacToeGame {
 		 default:
 			 break;
 		 }
+	}
+	
+	public static String checkWinner() {
+		List topRow = Arrays.asList(1, 2, 3);
+		List middleRow = Arrays.asList(4, 5, 6);
+		List bottomRow = Arrays.asList(7, 8, 9);
+		List leftColumn = Arrays.asList(1, 4, 7);
+		List middleColumn = Arrays.asList(2, 5, 8);
+		List rightColumn = Arrays.asList(3, 6, 9);
+		List cross1 = Arrays.asList(1, 5, 9);
+		List cross2 = Arrays.asList(7, 5, 3);
+		return "";
 	}
 }
