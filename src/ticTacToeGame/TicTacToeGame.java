@@ -1,5 +1,6 @@
 package ticTacToeGame;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class TicTacToeGame {
@@ -11,13 +12,21 @@ public class TicTacToeGame {
 				{' ','|',' ','|',' '}, 
 				{'—','+','—','+','—'}, 
 				{' ','|',' ','|',' '}};	
-		 Scanner scan = new Scanner(System.in);
-		 System.out.println("Please, enter your placement: ");
-		 System.out.println("A number from 1 to 9! ");
-		 int poss = scan.nextInt();
-		 System.out.println(poss);
-		 placePiece(gameBoard, poss, "Player");
-		 makeGameBoard(gameBoard);
+		 
+		 while(true) {
+			 Scanner scan = new Scanner(System.in);
+			 System.out.println("Please, enter your placement: ");
+			 System.out.println("A number from 1 to 9! ");
+			 int playerPoss = scan.nextInt();
+			 placePiece(gameBoard, playerPoss, "Player");
+			 Random rand = new Random();
+			 
+			 int cpuPoss = rand.nextInt(9) + 1;
+			 placePiece(gameBoard, cpuPoss, "Cpu");
+			 
+			 makeGameBoard(gameBoard);
+		 }
+		
 	}
 	public static void makeGameBoard(char [][] gameBoard) {
 		for(char[] row: gameBoard ) {
