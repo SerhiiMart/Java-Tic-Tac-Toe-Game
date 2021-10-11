@@ -100,6 +100,16 @@ public class TicTacToeGame {
 		winningConditions.add(rightColumn);
 		winningConditions.add(cross1);
 		winningConditions.add(cross2);
+		
+		for(List l: winningConditions) {
+			if (playerPositions.containsAll(l))	{
+				return "Congratulations! You Won!";
+			} else if (cpuPositions.containsAll(l)) {
+				return "Game over. You Lost!";
+			} else if(playerPositions.size() + cpuPositions.size() == 9) {
+				return "CAT!";
+			}
+		}
 		return "";
 	}
 }
