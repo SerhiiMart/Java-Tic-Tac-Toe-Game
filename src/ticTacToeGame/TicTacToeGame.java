@@ -23,14 +23,21 @@ public class TicTacToeGame {
 		 
 		 while(true) {
 			 Scanner scan = new Scanner(System.in);
+			 makeGameBoard(gameBoard);
 			 System.out.println("Please, enter your placement: ");
 			 System.out.println("A number from 1 to 9! ");
 			 int playerPoss = scan.nextInt();
+			 
 			 while(playerPositions.contains(playerPoss) || cpuPositions.contains(playerPositions)) {
 				 System.out.println("Position already taken. Try another one!");
 				 playerPoss = scan.nextInt();
 			 }
 			 placePiece(gameBoard, playerPoss, "Player");
+			 String result = checkWinner();
+			 if(result.length() > 0) {
+				 System.out.println(result);
+				 break;
+			 }
 			 
 			 Random rand = new Random();
 			 int cpuPoss = rand.nextInt(9) + 1;
@@ -38,9 +45,12 @@ public class TicTacToeGame {
 				 cpuPoss = rand.nextInt(9) + 1;
 			 }
 			 placePiece(gameBoard, cpuPoss, "Cpu");
-			 makeGameBoard(gameBoard);
-			 String result = checkWinner();
-			 System.out.println(result);
+			 result = checkWinner();
+			 if(result.length() > 0) {
+				 System.out.println(result);
+				 break;
+			 }
+			
 		 }
 		
 	}
