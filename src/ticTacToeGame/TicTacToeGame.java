@@ -1,12 +1,16 @@
 package ticTacToeGame;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
 public class TicTacToeGame {
-
+	
+	static ArrayList<Integer> playerPositions = new ArrayList<Integer>();
+	static ArrayList<Integer> cpuPositions = new ArrayList<Integer>();
+	
 	public static void main(String[] args) {
 		char [][] gameBoard = {
 				{' ','|',' ','|',' '},
@@ -87,6 +91,15 @@ public class TicTacToeGame {
 		List rightColumn = Arrays.asList(3, 6, 9);
 		List cross1 = Arrays.asList(1, 5, 9);
 		List cross2 = Arrays.asList(7, 5, 3);
+		List<List> winningConditions = new ArrayList<List>();
+		winningConditions.add(topRow);
+		winningConditions.add(middleRow);
+		winningConditions.add(bottomRow);
+		winningConditions.add(leftColumn);
+		winningConditions.add(middleColumn);
+		winningConditions.add(rightColumn);
+		winningConditions.add(cross1);
+		winningConditions.add(cross2);
 		return "";
 	}
 }
